@@ -2,12 +2,12 @@ import React, { useContext } from "react";
 import { Helmet } from "react-helmet-async";
 
 import { Link, useNavigate } from "react-router-dom";
-// import { AuthContext } from "../../Providers/AuthProvider";
+import { AuthContext } from "../AuthProvider/AuthProvider"
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import magesticLogo from './../../../images/majesticVillas.png'
 const Signup = () => {
-//   const { createUser, updateUserProfile } = useContext(AuthContext);
+  const { createUser, updateUserProfile } = useContext(AuthContext);
   const {
     register,
     handleSubmit,
@@ -17,24 +17,24 @@ const Signup = () => {
   const navigate = useNavigate();
 
   const onSubmit = async (data) => {
-    // try {
-    //   console.log(data);
-    //   const result = await createUser(data.email, data.password);
-    //   const loggedUser = result.user;
-    //   console.log(loggedUser);
+    try {
+      console.log(data);
+      const result = await createUser(data.email, data.password);
+      const loggedUser = result.user;
+      console.log(loggedUser);
 
-    //   await updateUserProfile(data.name, data.photoURL);
-    //   console.log("Profile updated successfully");
-    //   console.log(data.name, data.photoURL);
+      await updateUserProfile(data.name, data.photoURL);
+      console.log("Profile updated successfully");
+      console.log(data.name, data.photoURL);
      
-    // } catch (error) {
-    //   console.error("Error during signup", error);
-    //   Swal.fire({
-    //     icon: "error",
-    //     title: "Oops...",
-    //     text: error.message,
-    //   });
-    // }
+    } catch (error) {
+      console.error("Error during signup", error);
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: error.message,
+      });
+    }
   };
   return (
     <div>

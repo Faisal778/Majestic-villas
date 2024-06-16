@@ -3,10 +3,11 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import logo from './../../../images/majesticVillas.png'
 import { Helmet } from 'react-helmet-async';
+import { AuthContext } from '../AuthProvider/AuthProvider';
 
 const Signin = () => {
 
-    // const { signIn } = useContext(AuthContext);
+    const { signIn } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
   
@@ -19,25 +20,25 @@ const Signin = () => {
       const password = form.password.value;
       console.log(email, password);
   
-    //   signIn(email, password)
-    //     .then((result) => {
-    //       const user = result.user;
+      signIn(email, password)
+        .then((result) => {
+          const user = result.user;
   
-    //       Swal.fire({
-    //         position: "top-end",
-    //         icon: "success",
-    //         title: "Login successful",
-    //         showConfirmButton: false,
-    //         timer: 1500,
-    //       });
-    //     })
-    //     .catch((error) => {
-    //       Swal.fire({
-    //         icon: "error",
-    //         title: "Oops...",
-    //         text: error.message,
-    //       });
-    //     });
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Login successful",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        })
+        .catch((error) => {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: error.message,
+          });
+        });
       navigate(from, { replace: true });
     };
 
