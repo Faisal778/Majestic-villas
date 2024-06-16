@@ -2,10 +2,10 @@ import React, { useContext } from "react";
 import { Helmet } from "react-helmet-async";
 
 import { Link, useNavigate } from "react-router-dom";
-import { AuthContext } from "../AuthProvider/AuthProvider"
+import { AuthContext } from "../AuthProvider/AuthProvider";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
-import magesticLogo from './../../../images/majesticVillas.png'
+import magesticLogo from "./../../../images/majesticVillas.png";
 const Signup = () => {
   const { createUser, updateUserProfile } = useContext(AuthContext);
   const {
@@ -22,11 +22,17 @@ const Signup = () => {
       const result = await createUser(data.email, data.password);
       const loggedUser = result.user;
       console.log(loggedUser);
-
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "User created successfully",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      navigate("/");
       await updateUserProfile(data.name, data.photoURL);
       console.log("Profile updated successfully");
       console.log(data.name, data.photoURL);
-     
     } catch (error) {
       console.error("Error during signup", error);
       Swal.fire({
