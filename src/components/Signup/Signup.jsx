@@ -6,6 +6,7 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import magesticLogo from "./../../../images/majesticVillas.png";
+import GoogleLogin from "../GoogleLogin";
 const Signup = () => {
   const { createUser, updateUserProfile } = useContext(AuthContext);
   const {
@@ -63,6 +64,7 @@ const Signup = () => {
           <p className="mt-3 text-xl text-center text-gray-600 dark:text-gray-200">Welcome back!</p>
 
           {/* <SocialLogin></SocialLogin> */}
+          <GoogleLogin></GoogleLogin>
 
           <div className="flex items-center justify-between mt-4">
             <span className="w-1/5 border-b dark:border-gray-600 lg:w-1/4"></span>

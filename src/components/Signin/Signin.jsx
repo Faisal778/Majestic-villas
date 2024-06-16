@@ -4,6 +4,7 @@ import Swal from 'sweetalert2';
 import logo from './../../../images/majesticVillas.png'
 import { Helmet } from 'react-helmet-async';
 import { AuthContext } from '../AuthProvider/AuthProvider';
+import GoogleLogin from '../GoogleLogin';
 
 const Signin = () => {
 
@@ -64,8 +65,8 @@ const Signin = () => {
   
             <p className="mt-3 text-xl text-center text-gray-600 dark:text-gray-200">Welcome back!</p>
   
-            {/* <SocialLogin></SocialLogin> */}
-  
+          
+            <GoogleLogin></GoogleLogin>
             <div className="flex items-center justify-between mt-4">
               <span className="w-1/5 border-b dark:border-gray-600 lg:w-1/4"></span>
   

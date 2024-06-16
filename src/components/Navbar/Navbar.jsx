@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../AuthProvider/AuthProvider';
 
 const Navbar = () => {
+    const {user, logOut} = useContext(AuthContext)
+    const handleLogOut = () => {
+        logOut()
+        .then(() => {})
+        .catch((error) => console.error(error));
+      }
     const NavOptions = <>
         <li><Link to = "/"><a>Home</a></Link></li>
       <li>
@@ -29,10 +36,43 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end">
-    <Link to = "/signin"><a className="btn">Login</a></Link>
-  </div>
+          {!user? <>
+            <Link to="/signin">
+              {" "}
+              <a className="btn">Login</a>
+            </Link>
+          </>: <>
+            <div className="dropdown dropdown-end">
+              <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+              <div className="w-10 rounded-full">
+  <img 
+    alt="photo of user" 
+    src={
+      user?.photoURL ? user.photoURL : "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+    }
+    onError={(e) => {
+      console.error('Error loading user photo, falling back to default image');
+      e.target.src = "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg";
+    }}
+  />
 </div>
+              </div>
+              <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                <li>
+                  <a className="justify-between">
+                    {user?.displayName? user.displayName : "User"}
+                  </a>
+                </li>
+
+                <li>
+                  <a onClick={handleLogOut}>Logout</a>
+                </li>
+              </ul>
+            </div>
+            </>}
         </div>
+      </div>
+    </div>
     );
 };
 
