@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Helmet } from "react-helmet-async";
 
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
@@ -16,11 +16,13 @@ const Signup = () => {
     formState: { errors },
   } = useForm();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const onSubmit = async (data) => {
     try {
       console.log(data);
       const result = await createUser(data.email, data.password);
+      await updateUserProfile(data.name, data.photoURL);
       const loggedUser = result.user;
       console.log(loggedUser);
       Swal.fire({
@@ -30,10 +32,12 @@ const Signup = () => {
         showConfirmButton: false,
         timer: 1500,
       });
-      navigate("/");
-      await updateUserProfile(data.name, data.photoURL);
+      
+      
       console.log("Profile updated successfully");
       console.log(data.name, data.photoURL);
+      navigate("/");
+      window.location.reload();
     } catch (error) {
       console.error("Error during signup", error);
       Swal.fire({

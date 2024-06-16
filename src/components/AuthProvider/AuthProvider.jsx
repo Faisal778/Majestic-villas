@@ -9,12 +9,11 @@ import {
   signOut,
   updateProfile,
 } from "firebase/auth";
-import { app } from "../../firebase/firebase.init"
+import { app } from "../../firebase/firebase.init";
 
 export const AuthContext = createContext(null);
 
 const auth = getAuth(app);
-
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -35,13 +34,14 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     return signInWithPopup(auth, googleProvider);
   };
+
   const logOut = () => {
-    setLoading(false);
-    return signOut(auth);
+    setLoading(true);
+    return signOut(auth).finally(() => setLoading(false));
   };
 
   const updateUserProfile = (name, photo) => {
-    updateProfile(auth.currentUser, {
+    return updateProfile(auth.currentUser, {
       displayName: name,
       photoURL: photo,
     });
@@ -52,9 +52,7 @@ const AuthProvider = ({ children }) => {
       setUser(currentUser);
       setLoading(false);
     });
-    return () => {
-      return unsubscribe();
-    };
+    return () => unsubscribe();
   }, []);
 
   const authInfo = {
@@ -66,7 +64,12 @@ const AuthProvider = ({ children }) => {
     updateUserProfile,
     googleSignIn,
   };
-  return <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>;
+
+  return (
+    <AuthContext.Provider value={authInfo}>
+      {children}
+    </AuthContext.Provider>
+  );
 };
 
 export default AuthProvider;
