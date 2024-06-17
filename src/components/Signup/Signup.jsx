@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Helmet } from "react-helmet-async";
 
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import magesticLogo from "./../../../images/majesticVillas.png";
 import GoogleLogin from "../GoogleLogin";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 const Signup = () => {
   const { createUser, updateUserProfile } = useContext(AuthContext);
   const {
@@ -17,6 +18,11 @@ const Signup = () => {
   } = useForm();
   const navigate = useNavigate();
   const location = useLocation();
+  const [passwordVisible, setPasswordVisible] = useState(true);
+
+  const togglePasswordVisibility = () => {
+    setPasswordVisible(!passwordVisible);
+  };
 
   const onSubmit = async (data) => {
     try {
@@ -128,33 +134,40 @@ const Signup = () => {
                   Forget Password?
                 </a>
               </div>
+              <div className="flex flex-row items-center">
+                <input
+                  id="loggingPassword"
+                  className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300"
+                  type={passwordVisible ? "text" : "password"}
+                  name="password"
+                  {...register("password", {
+                    required: true,
+                    minLength: 6,
+                    pattern: /(?=.*[A-Z])(?=..*[a-z])/,
+                  })}
+                />
+                {errors.password?.type === "required" && (
+                  <p role="alert" className="text-red-600">
+                    Password is required
+                  </p>
+                )}
+                {errors.password?.type === "minLength" && (
+                  <p role="alert" className="text-red-600">
+                    Password must have minimum length of 6
+                  </p>
+                )}
+                {errors.password?.type === "pattern" && (
+                  <p role="alert" className="text-red-600">
+                    Password must consist one upper case and one lower case alphabet.
+                  </p>
+                )}
 
-              <input
-                id="loggingPassword"
-                className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300"
-                type="password"
-                name="password"
-                {...register("password", {
-                  required: true,
-                  minLength: 6,
-                  pattern: /(?=.*[A-Z])(?=..*[a-z])/,
-                })}
-              />
-              {errors.password?.type === "required" && (
-                <p role="alert" className="text-red-600">
-                  Password is required
-                </p>
-              )}
-              {errors.password?.type === "minLength" && (
-                <p role="alert" className="text-red-600">
-                  Password must have minimum length of 6
-                </p>
-              )}
-              {errors.password?.type === "pattern" && (
-                <p role="alert" className="text-red-600">
-                  Password must consist one upper case and one lower case alphabet.
-                </p>
-              )}
+                <div className="text-md px-4">
+                  <button type="button" onClick={togglePasswordVisibility} className="focus:outline-none">
+                    {passwordVisible ? <FaEyeSlash /> : <FaEye />}
+                  </button>
+                </div>
+              </div>
             </div>
 
             <div className="mt-6">
