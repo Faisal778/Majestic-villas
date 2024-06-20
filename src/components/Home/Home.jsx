@@ -5,7 +5,7 @@ import Banner from './Banner';
 const Home = () => {
     return (
         <div>
-            <Banner></Banner>
+            <Banner className = "rounded-lg"></Banner>
         <Estates></Estates>
         </div>
     );

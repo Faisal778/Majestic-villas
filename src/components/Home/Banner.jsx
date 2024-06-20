@@ -1,7 +1,9 @@
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-
+import banner1 from "./../../../images/banner1.jpg"
+import banner2 from "./../../../images/banner2.jpg"
+import banner3 from "./../../../images/banner3.webp"
 const Banner = () => {
 
     var settings = {
@@ -15,28 +17,25 @@ const Banner = () => {
       };
       
     return (
-        <div>
+       <div className="rounded-lg">
+         <div className="rounded-lg">
              <Slider {...settings}>
       <div>
-        <h3>1</h3>
+        <img className="object-cover max-h-[500px] rounded-lg w-full" src={banner1} alt="" />
       </div>
       <div>
-        <h3>2</h3>
+        <img className="object-cover max-h-[500px] rounded-lg w-full"  src= {banner2}alt = ""/>
       </div>
       <div>
-        <h3>3</h3>
+       <img  className="object-cover max-h-[500px] rounded-lg w-full"  src={banner1}alt="" />
       </div>
       <div>
-        <h3>4</h3>
+        <img className="object-cover max-h-[500px] rounded-lg w-full"  src={banner3} alt="" />
       </div>
-      <div>
-        <h3>5</h3>
-      </div>
-      <div>
-        <h3>6</h3>
-      </div>
+      
     </Slider>
         </div>
+       </div>
     );
 };
 
