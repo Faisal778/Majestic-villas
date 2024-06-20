@@ -1,0 +1,67 @@
+[
+  {
+    "id": 1,
+    "estate_title": "Oceanfront Paradise",
+    "segment_name": "Beachfront",
+    "description": "A stunning oceanfront property with breathtaking views and direct beach access.",
+    "price": "$4,500,000",
+    "status": "sale",
+    "area": "3500 sqft",
+    "location": "Malibu, CA",
+    "facilities": ["living room", "swimming pool", "kitchen", "private beach", "home theater"],
+    "image_url": "https://example.com/images/oceanfront_paradise.jpg",
+    "view_property_button": "View Property"
+  },
+  {
+    "id": 2,
+    "estate_title": "Tropical Beachfront Villa",
+    "segment_name": "Beachfront",
+    "description": "A luxurious villa with a private pool and tropical gardens, steps away from the beach.",
+    "price": "$3,200,000",
+    "status": "sale",
+    "area": "2800 sqft",
+    "location": "Maui, HI",
+    "facilities": ["living room", "swimming pool", "kitchen", "tropical garden", "outdoor shower"],
+    "image_url": "https://example.com/images/tropical_villa.jpg",
+    "view_property_button": "View Property"
+  },
+  {
+    "id": 3,
+    "estate_title": "Beachfront Mansion",
+    "segment_name": "Beachfront",
+    "description": "A grand mansion offering unparalleled luxury with panoramic ocean views.",
+    "price": "$6,800,000",
+    "status": "sale",
+    "area": "5000 sqft",
+    "location": "Miami, FL",
+    "facilities": ["living room", "swimming pool", "kitchen", "home gym", "private beach"],
+    "image_url": "https://example.com/images/beachfront_mansion.jpg",
+    "view_property_button": "View Property"
+  },
+  {
+    "id": 4,
+    "estate_title": "Seaside Retreat",
+    "segment_name": "Beachfront",
+    "description": "A serene retreat with modern amenities and direct access to a secluded beach.",
+    "price": "$2,750,000",
+    "status": "sale",
+    "area": "2300 sqft",
+    "location": "Key West, FL",
+    "facilities": ["living room", "swimming pool", "kitchen", "private deck", "fire pit"],
+    "image_url": "https://example.com/images/seaside_retreat.jpg",
+    "view_property_button": "View Property"
+  },
+  {
+    "id": 5,
+    "estate_title": "Luxury Coastal Condo",
+    "segment_name": "Beachfront",
+    "description": "A modern condo offering luxury living with stunning ocean views and top-notch amenities.",
+    "price": "$1,200,000",
+    "status": "sale",
+    "area": "1500 sqft",
+    "location": "Santa Monica, CA",
+    "facilities": ["living room", "swimming pool", "kitchen", "gym", "balcony"],
+    "image_url": "https://example.com/images/coastal_condo.jpg",
+    "view_property_button": "View Property"
+  }
+]
