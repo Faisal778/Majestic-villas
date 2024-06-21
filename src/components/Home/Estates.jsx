@@ -36,7 +36,7 @@ const Estates = () => {
         </section>
       ) : (
         <div>
-          <h1>Check Out our estates</h1>
+          <h1 className="m-10 mt-20 text-center font-semibold text-3xl text-yellow-400 ">--Check Out Our Estates--</h1>
           <div className="grid grid-cols-3 gap-4">
             {estates.map((estate) => (
               <Estate key={estate.id} estate={estate}></Estate>

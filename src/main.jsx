@@ -9,6 +9,7 @@ import Signin from "./components/Signin/Signin.jsx";
 import Signup from "./components/Signup/Signup.jsx";
 import { HelmetProvider } from "react-helmet-async";
 import AuthProvider from "./components/AuthProvider/AuthProvider.jsx";
+import EstateDetails from "./components/Home/EstateDetails.jsx";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
         path: "/signup",
         element: <Signup></Signup>,
       },
+      {
+        path: "/estate/:id",
+        element: <EstateDetails></EstateDetails>
+      }
     ],
   },
 ]);

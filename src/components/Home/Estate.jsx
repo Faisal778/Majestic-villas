@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Estate = ({estate}) => {
     console.log(estate)
@@ -17,7 +18,7 @@ const Estate = ({estate}) => {
       </div>
 
       <div className='text-center p-4'>
-      <button className="btn btn-sm lg:btn-wide btn-primary text-white">Explore More</button>
+      <Link to = {`estate/${estate.id}`}> <button className="btn btn-sm lg:btn-wide btn-primary text-white">Explore More</button></Link>
 
        
       </div>

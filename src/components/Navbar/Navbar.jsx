@@ -19,6 +19,9 @@ const Navbar = () => {
       <li>
         <Link to="/item3">Item 3</Link>
       </li>
+      <li>
+        <Link to="/estate/:id">Item 3</Link>
+      </li>
     </>
   );
 
