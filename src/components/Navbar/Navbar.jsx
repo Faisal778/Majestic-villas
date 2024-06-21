@@ -48,7 +48,9 @@ const Navbar = () => {
               {NavOptions}
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">Majestic Villas</a>
+          <Link to="/">
+            <a className="btn btn-ghost text-xl">Majestic Villas</a>
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{NavOptions}</ul>
@@ -59,7 +61,8 @@ const Navbar = () => {
               <a className="btn">Login</a>
             </Link>
           ) : (
-            (!loading && <div className="flex dropdown dropdown-end items-center ">
+            !loading && (
+              <div className="flex dropdown dropdown-end items-center ">
                 <div data-tip={user?.displayName} tabIndex={0} role="button" className="tooltip tooltip-bottom btn btn-ghost btn-circle avatar">
                   <div className="w-10 rounded-full">
                     <img
@@ -76,14 +79,15 @@ const Navbar = () => {
                   <li>
                     <a className="justify-between">{user?.displayName ? user.displayName : "User"}</a>
                   </li>
-                  <li>
-                    
-                  </li>
+                  <li></li>
                 </ul>
                 <div>
-                <a className="btn" onClick={handleLogOut}>Logout</a>
+                  <a className="btn" onClick={handleLogOut}>
+                    Logout
+                  </a>
                 </div>
-              </div>)
+              </div>
+            )
           )}
         </div>
       </div>

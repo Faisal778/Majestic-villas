@@ -10,6 +10,7 @@ import Signup from "./components/Signup/Signup.jsx";
 import { HelmetProvider } from "react-helmet-async";
 import AuthProvider from "./components/AuthProvider/AuthProvider.jsx";
 import EstateDetails from "./components/Home/EstateDetails.jsx";
+import PrivateRoute from "./components/AuthProvider/PrivateRoute.jsx";
 
 const router = createBrowserRouter([
   {
@@ -30,7 +31,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/estate/:id",
-        element: <EstateDetails></EstateDetails>
+        element: <PrivateRoute><EstateDetails></EstateDetails></PrivateRoute>
       }
     ],
   },
