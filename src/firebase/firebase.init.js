@@ -6,12 +6,12 @@ import {getAuth} from "firebase/auth"
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyA3cegYCMYooNORIAl-VKxvuOkdKV0EJgA",
-  authDomain: "majestic-villas.firebaseapp.com",
-  projectId: "majestic-villas",
-  storageBucket: "majestic-villas.appspot.com",
-  messagingSenderId: "848513921960",
-  appId: "1:848513921960:web:5b144f92400140fef9a39d"
+  apiKey:import.meta.env.VITE_APIKEY,
+  authDomain:import.meta.env.VITE_AUTHDOMAIN,
+  projectId:import.meta.env.VITE_PROJECTID,
+  storageBucket:import.meta.env.VITE_STORAGEBUCKET,
+  messagingSenderId:import.meta.env.VITE_MESSAGINGSENDERID,
+  appId:import.meta.env.VITE_APPID
 };
 
 // Initialize Firebase

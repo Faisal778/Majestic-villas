@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
-
+import logo from "./../../../images/majesticVillas.png"
 const Navbar = () => {
   const { user, logOut, loading } = useContext(AuthContext);
 
@@ -49,7 +49,10 @@ const Navbar = () => {
             </ul>
           </div>
           <Link to="/">
-            <a className="btn btn-ghost text-xl">Majestic Villas</a>
+            <div className="flex flex-row items-center">
+            <a className="btn btn-ghost text-xl"><img className="h-7 w-8 rounded-md" src={logo} alt="" />
+            Majestic Villas</a>
+            </div>
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">

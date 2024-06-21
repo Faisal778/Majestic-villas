@@ -18,7 +18,7 @@ const Signup = () => {
   } = useForm();
   const navigate = useNavigate();
   const location = useLocation();
-  const [passwordVisible, setPasswordVisible] = useState(true);
+  const [passwordVisible, setPasswordVisible] = useState(false);
 
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);

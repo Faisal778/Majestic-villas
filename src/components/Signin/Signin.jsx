@@ -9,7 +9,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Signin = () => {
   const { signIn, user } = useContext(AuthContext);
-  const [passwordVisible, setPasswordVisible] = useState(true);
+  const [passwordVisible, setPasswordVisible] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
   console.log(location)
