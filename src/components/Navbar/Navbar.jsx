@@ -16,12 +16,12 @@ const Navbar = () => {
       <li>
         <Link to="/">Home</Link>
       </li>
-      <li>
-        <Link to="/item3">Item 3</Link>
-      </li>
-      <li>
-        <Link to="/estate/:id">Item 3</Link>
-      </li>
+      {
+        user && <li>
+        <Link to="/reviews">Reviews</Link>
+      </li> 
+      }
+      
     </>
   );
 
