@@ -3,6 +3,7 @@ import googleLogo from "./../../images/google-logo.svg";
 import twitterLogo from "./../../images/twitterLogo.jpg";
 import { useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "./AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
 
 const GoogleLogin = () => {
   const { googleSignIn, twitterLogin } = useContext(AuthContext);
@@ -12,7 +13,13 @@ const GoogleLogin = () => {
   const handleGoogleSignIn = () => {
     googleSignIn().then((result) => {
       console.log(result.user);
-
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Login successful",
+        showConfirmButton: false,
+        timer: 1500,
+      });
       // navigate(location.state);
       navigate(from, { replace: true });
     });
@@ -21,6 +28,13 @@ const GoogleLogin = () => {
   const handleTwitterSignin = () => {
     twitterLogin().then((result) => {
       console.log(result)
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Login successful",
+        showConfirmButton: false,
+        timer: 1500,
+      });
       console.log(location.state)
       // navigate(location.state);
       navigate(from, { replace: true });

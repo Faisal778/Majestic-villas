@@ -11,6 +11,7 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { app } from "../../firebase/firebase.init";
+import Swal from "sweetalert2";
 
 export const AuthContext = createContext(null);
 
@@ -46,6 +47,13 @@ const AuthProvider = ({ children }) => {
 
   const logOut = () => {
     setLoading(true);
+    Swal.fire({
+      position: "top-end",
+      icon: "success",
+      title: "logout successful",
+      showConfirmButton: false,
+      timer: 1500,
+    });
     return signOut(auth).finally(() => setLoading(false));
   };
 
