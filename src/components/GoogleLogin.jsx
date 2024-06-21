@@ -8,19 +8,22 @@ const GoogleLogin = () => {
   const { googleSignIn, twitterLogin } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
-
+  const from = location.state?.from?.pathname || "/";
   const handleGoogleSignIn = () => {
     googleSignIn().then((result) => {
       console.log(result.user);
 
-      navigate("/");
+      // navigate(location.state);
+      navigate(from, { replace: true });
     });
   };
 
   const handleTwitterSignin = () => {
     twitterLogin().then((result) => {
       console.log(result)
-      navigate('/');
+      console.log(location.state)
+      // navigate(location.state);
+      navigate(from, { replace: true });
     })
   };
   return (

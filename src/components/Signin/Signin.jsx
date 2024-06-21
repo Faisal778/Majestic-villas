@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import logo from "./../../../images/majesticVillas.png";
@@ -8,12 +8,14 @@ import GoogleLogin from "../GoogleLogin";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Signin = () => {
-  const { signIn } = useContext(AuthContext);
+  const { signIn, user } = useContext(AuthContext);
   const [passwordVisible, setPasswordVisible] = useState(true);
   const navigate = useNavigate();
   const location = useLocation();
+  console.log(location)
 
-  const from = location.state?.from?.pathname || "/";
+
+  // const from = location.state?.from?.pathname || "/";
 
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
@@ -44,8 +46,14 @@ const Signin = () => {
           text: error.message,
         });
       });
-    navigate(from, { replace: true });
+    // navigate(from, { replace: true });
+    
   };
+  useEffect(() => {
+    if (user){
+      navigate(location.state)
+    }
+  },[user])
 
   return (
     <div>
