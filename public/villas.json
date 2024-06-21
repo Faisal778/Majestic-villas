@@ -48,7 +48,7 @@
     "area": "2300 sqft",
     "location": "Key West, FL",
     "facilities": ["living room", "swimming pool", "kitchen", "private deck", "fire pit"],
-    "image_url": "https://example.com/images/seaside_retreat.jpg",
+    "image_url": "https://i.ibb.co/6F7t5f0/image.png",
     "view_property_button": "View Property"
   },
   {
@@ -61,7 +61,7 @@
     "area": "1500 sqft",
     "location": "Santa Monica, CA",
     "facilities": ["living room", "swimming pool", "kitchen", "gym", "balcony"],
-    "image_url": "https://example.com/images/coastal_condo.jpg",
+    "image_url": "https://i.ibb.co/6F7t5f0/image.png",
     "view_property_button": "View Property"
   }
 ]

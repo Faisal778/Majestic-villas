@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Estate from "./Estate";
-
+<script src="bower_components/aos/dist/aos.js"></script> 
 const Estates = () => {
   const [estates, setEstates] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -35,9 +35,9 @@ const Estates = () => {
           </div>
         </section>
       ) : (
-        <div>
-          <h1 className="m-10 mt-20 text-center font-semibold text-3xl text-yellow-400 ">--Check Out Our Estates--</h1>
-          <div className="grid grid-cols-3 gap-4">
+        <div data-aos="fade-up-right" >
+          <h1 className="text-2xl text-center font-semibol capitalize lg:text-3xl text-gray-800 p-4 bg-blue-100 rounded-2xl mt-10">Check Out Our Estates</h1>
+          <div data-aos="fade-up-right" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mx-auto">
             {estates.map((estate) => (
               <Estate key={estate.id} estate={estate}></Estate>
             ))}

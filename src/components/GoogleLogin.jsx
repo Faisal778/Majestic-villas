@@ -13,6 +13,9 @@ const GoogleLogin = () => {
   const handleGoogleSignIn = () => {
     googleSignIn().then((result) => {
       console.log(result.user);
+      
+      // navigate(location.state);
+      navigate(from, { replace: true });
       Swal.fire({
         position: "top-end",
         icon: "success",
@@ -20,14 +23,16 @@ const GoogleLogin = () => {
         showConfirmButton: false,
         timer: 1500,
       });
-      // navigate(location.state);
-      navigate(from, { replace: true });
     });
   };
 
   const handleTwitterSignin = () => {
     twitterLogin().then((result) => {
       console.log(result)
+      
+      console.log(location.state)
+      // navigate(location.state);
+      navigate(from, { replace: true });
       Swal.fire({
         position: "top-end",
         icon: "success",
@@ -35,9 +40,6 @@ const GoogleLogin = () => {
         showConfirmButton: false,
         timer: 1500,
       });
-      console.log(location.state)
-      // navigate(location.state);
-      navigate(from, { replace: true });
     })
   };
   return (

@@ -12,11 +12,13 @@ import AuthProvider from "./components/AuthProvider/AuthProvider.jsx";
 import EstateDetails from "./components/Home/EstateDetails.jsx";
 import PrivateRoute from "./components/AuthProvider/PrivateRoute.jsx";
 import villasData from '../public/villas.json';
+import Errorpage from "./components/Errorpage.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement: <Errorpage></Errorpage>,
     children: [
       {
         path: "/",

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Estate = ({estate}) => {
     console.log(estate)
     return (
-        <div className="w-full max-w-sm px-4 py-3 bg-white rounded-md shadow-md dark:bg-gray-800">
+        <div data-aos="animation_name" className="w-full max-w-sm px-4 py-3 bg-white rounded-md shadow-md dark:bg-gray-800">
                 <img  className = "rounded- py-4" src={estate.image_url} alt= {`image of ${estate.estate_title}`} />
       <div className="flex items-center justify-between">
         <span className="text-sm font-light text-gray-800 dark:text-gray-400">{estate.segment_name}</span>

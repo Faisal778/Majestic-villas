@@ -21,16 +21,16 @@ const Banner = () => {
          <div className="rounded-lg">
              <Slider {...settings}>
       <div>
-        <img className="object-cover max-h-[500px] rounded-lg w-full" src={banner1} alt="" />
+        <img className="object-fill max-h-[500px] rounded-lg w-full" src={banner1} alt="" />
       </div>
       <div>
-        <img className="object-cover max-h-[500px] rounded-lg w-full"  src= {banner2}alt = ""/>
+        <img className="object-fill max-h-[500px] rounded-lg w-full"  src= {banner2}alt = ""/>
       </div>
       <div>
-       <img  className="object-cover max-h-[500px] rounded-lg w-full"  src={banner1}alt="" />
+       <img  className="object-fill max-h-[500px] rounded-lg w-full"  src={banner1}alt="" />
       </div>
       <div>
-        <img className="object-cover max-h-[500px] rounded-lg w-full"  src={banner3} alt="" />
+        <img className="object-fill max-h-[500px] rounded-lg w-full"  src={banner3} alt="" />
       </div>
       
     </Slider>
