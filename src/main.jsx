@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, useParams } from "react-router-dom";
 import Root from "./components/Root/Root.jsx";
 import Home from "./components/Home/Home.jsx";
 import Signin from "./components/Signin/Signin.jsx";
@@ -11,6 +11,7 @@ import { HelmetProvider } from "react-helmet-async";
 import AuthProvider from "./components/AuthProvider/AuthProvider.jsx";
 import EstateDetails from "./components/Home/EstateDetails.jsx";
 import PrivateRoute from "./components/AuthProvider/PrivateRoute.jsx";
+import villasData from '../public/villas.json';
 
 const router = createBrowserRouter([
   {
@@ -31,7 +32,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/estate/:id",
-        element: <PrivateRoute><EstateDetails></EstateDetails></PrivateRoute>
+        element: <PrivateRoute><EstateDetails></EstateDetails></PrivateRoute>,
+        loader: () => fetch('../public/villas.json')
       }
     ],
   },
