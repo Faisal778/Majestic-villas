@@ -12,25 +12,22 @@ const Signin = () => {
   const [passwordVisible, setPasswordVisible] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-  console.log(location)
 
-
-  // const from = location.state?.from?.pathname || "/";
+  const from = location.state?.from?.pathname || "/";
 
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
   };
+
   const handleLogin = (event) => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
 
     signIn(email, password)
       .then((result) => {
         const user = result.user;
-
         Swal.fire({
           position: "top-end",
           icon: "success",
@@ -38,6 +35,7 @@ const Signin = () => {
           showConfirmButton: false,
           timer: 1500,
         });
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         Swal.fire({
@@ -46,14 +44,13 @@ const Signin = () => {
           text: error.message,
         });
       });
-    // navigate(from, { replace: true });
-    
   };
+
   useEffect(() => {
-    if (user){
-      navigate(location.state)
+    if (user) {
+      navigate(from, { replace: true });
     }
-  },[user])
+  }, [user, navigate, from]);
 
   return (
     <div>
@@ -64,18 +61,20 @@ const Signin = () => {
       <div className="flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 lg:max-w-4xl my-10">
         <div
           className="hidden bg-cover bg-center lg:block rounded-md lg:w-1/2"
-          style={{
-            backgroundImage: `url(${logo})`,
-          }}></div>
+          style={{ backgroundImage: `url(${logo})` }}
+        ></div>
 
         <div className="w-full px-6 py-8 md:px-8 lg:w-1/2">
           <div className="flex justify-center mx-auto">
             <img className="w-auto h-7 sm:h-8" src={logo} alt="" />
           </div>
 
-          <p className="mt-3 text-xl text-center text-gray-600 dark:text-gray-200">Welcome back!</p>
+          <p className="mt-3 text-xl text-center text-gray-600 dark:text-gray-200">
+            Welcome back!
+          </p>
 
-          <GoogleLogin></GoogleLogin>
+          <GoogleLogin />
+
           <div className="flex items-center justify-between mt-4">
             <span className="w-1/5 border-b dark:border-gray-600 lg:w-1/4"></span>
 
@@ -85,6 +84,7 @@ const Signin = () => {
 
             <span className="w-1/5 border-b dark:border-gray-400 lg:w-1/4"></span>
           </div>
+
           <form onSubmit={handleLogin}>
             <div className="mt-4">
               <label className="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200" htmlFor="LoggingEmailAddress">

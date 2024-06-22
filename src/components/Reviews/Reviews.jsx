@@ -1,8 +1,12 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 
 const Reviews = () => {
   return (
     <div>
+      <Helmet>
+        <title>Majestic Villas | Reviews</title>
+      </Helmet>
       <header className="bg-white dark:bg-gray-900">
         <div className="container px-6 py-16 mx-auto">
           <div className="items-center lg:flex">

@@ -11,7 +11,6 @@ import { HelmetProvider } from "react-helmet-async";
 import AuthProvider from "./components/AuthProvider/AuthProvider.jsx";
 import EstateDetails from "./components/Home/EstateDetails.jsx";
 import PrivateRoute from "./components/AuthProvider/PrivateRoute.jsx";
-import villasData from '../public/villas.json';
 import Errorpage from "./components/Errorpage.jsx";
 import Reviews from "./components/Reviews/Reviews.jsx";
 
@@ -37,7 +36,7 @@ const router = createBrowserRouter([
       {
         path: "/estate/:id",
         element: <PrivateRoute><EstateDetails></EstateDetails></PrivateRoute>,
-        loader: () => fetch('../public/villas.json')
+        loader: () => fetch('villas.json')
       },
       {
         path: "/reviews",

@@ -16,11 +16,11 @@ const Navbar = () => {
       <li>
         <Link to="/">Home</Link>
       </li>
-      {
-        user && <li>
+      
+     <li>
         <Link to="/reviews">Reviews</Link>
       </li> 
-      }
+      
       
     </>
   );

@@ -37,7 +37,7 @@ const Estates = () => {
       ) : (
         <div data-aos="fade-up-right" >
           <h1 className="text-2xl text-center font-semibol capitalize lg:text-3xl text-gray-800 p-4 bg-blue-100 rounded-2xl mt-10">Check Out Our Estates</h1>
-          <div data-aos="fade-up-right" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mx-auto">
+          <div data-aos="fade-up-right" className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 mx-auto">
             {estates.map((estate) => (
               <Estate key={estate.id} estate={estate}></Estate>
             ))}
